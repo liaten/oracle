@@ -1,0 +1,24 @@
+CREATE TABLESPACE TBS_2022 DATAFILE 'C:\oraclexe\app\oracle\oradata\XE\TBS_2022_01.dbf'
+size 100M online;
+
+CREATE USER liaten IDENTIFIED BY 0000
+default tablespace TBS_2022;
+
+SELECT * FROM DBA_USERS;
+
+GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW,
+CREATE PROCEDURE, CREATE TRIGGER, CREATE SEQUENCE TO liaten;
+
+ALTER USER liaten quota unlimited on TBS_2022;
+
+SELECT SYSDATE FROM DUAL; /* ДАТА И ВРЕМЯ */
+
+/*
+	DATE FORMAT = DD-MM-YYYY HH24:MI:SS
+*/
+
+SELECT TRUNC(SYSDATE) FROM DUAL; /* ВЫВОДИТ НУЛЕВОЕ ВРЕМЯ */
+
+SELECT TO_CHAR(TRUNC(SYSDATE),'DD.MM.YYYY') FROM DUAL; /* ВЫВОДИТ ДАТУ БЕЗ ВРЕМЕНИ */
+
+SELECT TO_CHAR(TRUNC(SYSDATE),'YYYY') AS YEAR FROM DUAL; /* ВЫВОДИТ ГОД */
